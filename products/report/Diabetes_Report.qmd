@@ -2,8 +2,9 @@
 title: "Assesment - R Project"
 author: "Carolina Fragozo"
 Date: "today"
-format: html  
-editor: visual
+format:
+  html:
+    embed-resources: true
 ---
 
 ----
