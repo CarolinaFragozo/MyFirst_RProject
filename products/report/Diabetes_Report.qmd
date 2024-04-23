@@ -1,5 +1,5 @@
 ---
-title: "Assesment - R Project"
+title: "Assessment - R Project"
 author: "Carolina Fragozo"
 Date: "today"
 format:
@@ -29,11 +29,11 @@ library(tidyverse)
 
 ## Introduction
 
-Type 1 diabetes (T1D), formerly known as juvenile diabetes, is an autoimmune disease that originates when cells that make insulin (beta cells) are destroyed by the immune system. The aim of this analysis is to visualize the glucose control in a cohort of participants with T1D at University Hospital in Switzerland.
+Type 1 diabetes (T1D), formerly known as juvenile diabetes, is an autoimmune disease that originates when cells that make insulin (beta cells) are destroyed by the immune system. The aim of this analysis is to visualize the glucose control in term of a1C in a cohort of participants with T1D at University Hospital in Switzerland.
 
 ## Data
 
-We analyzed the data of HbA1C in a cohort of participants with T1D at University Hospital in Switzerland.
+We analyzed the data of A1C in a cohort of participants with T1D at University Hospital in Switzerland.
 
 ```{r}
 #| output: false
@@ -59,4 +59,4 @@ ggplot(cases, aes (x= id, y= a1c)) +
 
 # Conclusions
 
-Our Analysis showed that most of the participant with T1D do not meet the target in HbA1C (less than 6%) according to the guidelines. We need to move forward beyond insulin therapies.
+Our Analysis, showed that most of the participant with T1D do not meet the target in term of A1C (less than 6%) according to the diabetes guidelines. We need to move forward beyond insulin therapies to reach the target.
