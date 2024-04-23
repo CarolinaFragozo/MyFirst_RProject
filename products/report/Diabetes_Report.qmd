@@ -33,7 +33,7 @@ Type 1 diabetes (T1D), formerly known as juvenile diabetes, is an autoimmune dis
 
 ## Data
 
-We analyzed the data of A1C in a cohort of participants with T1D at University Hospital in Switzerland.
+We analyzed the data of a1C in a cohort of participants with T1D at University Hospital in Switzerland.
 
 ```{r}
 #| output: false
@@ -44,11 +44,11 @@ cases <- read_csv("/Users/PrecisionLab/OneDrive - Universitaet Bern/Documents/RS
 # Process data 
 ```
 
-@fig-cases shows the HbA1C data in a cohort of participants with T1D at University Hospital in Switzerland.
+@fig-cases shows the a1C data in a cohort of participants with T1D at University Hospital in Switzerland.
 
 ```{r}
 #| label: fig-cases 
-#| fig-cap: "HbA1C data in a cohort of participants with T1D"
+#| fig-cap: "a1C data in a cohort of participants with T1D"
 #| fig-width: 8
 #| fig-height: 4
 
@@ -59,4 +59,4 @@ ggplot(cases, aes (x= id, y= a1c)) +
 
 # Conclusions
 
-Our Analysis, showed that most of the participant with T1D do not meet the target in term of A1C (less than 6%) according to the diabetes guidelines. We need to move forward beyond insulin therapies to reach the target.
+Our Analysis, showed that most of the participant with T1D do not meet the target in term of a1C (less than 6%) according to the diabetes guidelines. We need to move forward beyond insulin therapies to reach the target.
