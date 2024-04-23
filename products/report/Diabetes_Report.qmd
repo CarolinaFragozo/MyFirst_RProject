@@ -1,10 +1,12 @@
 ---
 title: "Assesment - R Project"
 author: "Carolina Fragozo"
-format: html
+Date: "today"
+format: html  
 editor: visual
 ---
 
+----
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
@@ -39,7 +41,6 @@ We analyzed the data of HbA1C in a cohort of participants with T1D at University
 cases <- read_csv("/Users/PrecisionLab/OneDrive - Universitaet Bern/Documents/RStudio_Project Course/T1DEXI Base de datos Carolina Feb 23 2024.csv")
 
 # Process data 
-a1c <- cases |> select (a1c) 
 ```
 
 @fig-cases shows the HbA1C data in a cohort of participants with T1D at University Hospital in Switzerland.
