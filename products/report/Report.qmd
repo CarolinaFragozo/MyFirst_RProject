@@ -1,14 +1,12 @@
 ---
-title: "Second wave of COVID-19 in Switzerland"
-author: "CarolinaFragozo"
-date:  "r `date ()`"
+title: "Ebola Epidemic in 2014-2016"
+author: "Carolina Fragozo"
+date:  Today
 format: 
   html:
       toc: true
       code-fold: show
       code-tools: true
-  pdf: 
-    toc: true
 editor: visual
 ---
 
@@ -30,42 +28,40 @@ library(unibeCols)
 library(tidyverse)
 ```
 ## Introduction 
-The aim of this exercise is to visualise the increase in laboratory-confirmed of COVID-19 in Switzerland in Autuum 2020. 
+Ebola virus disease (EVD), formerly known as Ebola haemorrhagic fever, is a severe, often fatal illness affecting humans and other primates. The aim of this analysis is to visualize the worldwide Ebola cumulative-incidence during 2014-2016 epidemic period. 
 
 ## Data
 
-We read an process the data of laboratory-confirmed cases of COVID-19 in Switzerland reported by the Federal Office of Public Health. 
+We analyzed the data of cumulative-incidence of Ebola reported by "UNICEF". https://www.unicef.de/informieren/aktuelles/blog/-/ebola-fakten-und-lichtblicke/274006
 
-You can add options to executable code like this
 
 ```{r load data}
 #| output: false
 # Read data
-cases <- read_csv("/Users/PrecisionLab/OneDrive - Universitaet Bern/Documents/RStudio_Project Course/COVID19Cases_geoRegion.csv")
+cases <- read_csv("/Users/PrecisionLab/OneDrive - Universitaet Bern/Documents/RStudio_Project Course/ebola.csv")
 ```
 
 ```{r set parameters}
 # Process data 
-region <- "CH"
-window_start <- ymd("2020.09.01")
-window_end <- ymd("2020.11.30")
-cases <- cases |>
-  filter(geoRegion == region & datum >= window_start & datum <= window_end) |> select (datum, entries) 
+window_start <- ymd("2014.01.01")
+window_end <- ymd("2016.12.31")
+Cum_conf_cases <- cases |>
+  filter(Date >= window_start & Date <= window_end) |> select (Date,Cum_conf_cases) 
 ```
 
-@fig-cases shows the number of laboratory-confirmed of COVID-19 in Switzerland from `r window_start` to `window_end`. 
-gfc
+@fig-cases shows the number of cumulative-cases of Ebola in the worldwide from `r window_start` to `r window_end`. 
+
 ```{r create figure}
 #| label: fig-cases 
-#| fig-cap: "laboratory-confirmed cases of COVID-19 in Switzerland in 2020."
+#| fig-cap: "Cumulative-cases of Ebola Epidemic period (2014-2016)."
 #| fig-width: 8
 #| fig-height: 4
-ggplot(cases, aes (x= datum, y= entries)) + 
+ggplot(cases, aes (x= Date, y= Cum_conf_cases)) + 
   geom_bar (stat = "identity", fill = unibeSaphire ())+
-  labs(x = "", y = "laboratory-confirmed cases") + theme_minimal() 
+  labs(x = "", y = "cumulative-cases") + theme_minimal() 
 ```
 # Conclusions
 
-the numbers of laboratory-confirmed of COVID-19 in Switzerland. 
+The 2014–2016 outbreak of Ebola was the largest since the virus was first discovered in 1976. the number of cumulative-cases of Ebola in the worldwide had a progressive increase since 2014 until the winter of 2016. 
 
-The `echo: false` option disables the printing of code (only output is displayed).
+
