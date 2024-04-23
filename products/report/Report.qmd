@@ -1,0 +1,71 @@
+---
+title: "Second wave of COVID-19 in Switzerland"
+author: "CarolinaFragozo"
+date:  "r `date ()`"
+format: 
+  html:
+      toc: true
+      code-fold: show
+      code-tools: true
+  pdf: 
+    toc: true
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+#I  output:false
+# Load libraries 
+library(here)
+library(lubridate)
+library(readr)
+library(unibeCols)
+library(tidyverse)
+```
+## Introduction 
+The aim of this exercise is to visualise the increase in laboratory-confirmed of COVID-19 in Switzerland in Autuum 2020. 
+
+## Data
+
+We read an process the data of laboratory-confirmed cases of COVID-19 in Switzerland reported by the Federal Office of Public Health. 
+
+You can add options to executable code like this
+
+```{r load data}
+#| output: false
+# Read data
+cases <- read_csv("/Users/PrecisionLab/OneDrive - Universitaet Bern/Documents/RStudio_Project Course/COVID19Cases_geoRegion.csv")
+```
+
+```{r set parameters}
+# Process data 
+region <- "CH"
+window_start <- ymd("2020.09.01")
+window_end <- ymd("2020.11.30")
+cases <- cases |>
+  filter(geoRegion == region & datum >= window_start & datum <= window_end) |> select (datum, entries) 
+```
+
+@fig-cases shows the number of laboratory-confirmed of COVID-19 in Switzerland from `r window_start` to `window_end`. 
+
+```{r create figure}
+#| label: fig-cases 
+#| fig-cap: "laboratory-confirmed cases of COVID-19 in Switzerland in 2020."
+#| fig-width: 8
+#| fig-height: 4
+ggplot(cases, aes (x= datum, y= entries)) + 
+  geom_bar (stat = "identity", fill = unibeSaphire ())+
+  labs(x = "", y = "laboratory-confirmed cases") + theme_minimal() 
+```
+# Conclusions
+
+the numbers of laboratory-confirmed of COVID-19 in Switzerland. 
+
+The `echo: false` option disables the printing of code (only output is displayed).
