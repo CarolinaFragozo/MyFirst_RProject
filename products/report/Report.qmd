@@ -54,7 +54,7 @@ cases <- cases |>
 ```
 
 @fig-cases shows the number of laboratory-confirmed of COVID-19 in Switzerland from `r window_start` to `window_end`. 
-
+gfc
 ```{r create figure}
 #| label: fig-cases 
 #| fig-cap: "laboratory-confirmed cases of COVID-19 in Switzerland in 2020."
