@@ -14,7 +14,8 @@ Quarto enables you to weave together content and executable code into a finished
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
-#I  output:false
+#| output: false
+
 # Load libraries 
 library(here)
 library(lubridate)
@@ -22,13 +23,18 @@ library(readr)
 library(unibeCols)
 library(tidyverse)
 ```
+
 ## Introduction
+
 Type 1 diabetes (T1D), formerly known as juvenile diabetes, is an autoimmune disease that originates when cells that make insulin (beta cells) are destroyed by the immune system. The aim of this analysis is to visualize the glucose control in a cohort of participants with T1D at University Hospital in Switzerland.
 
 ## Data
+
 We analyzed the data of HbA1C in a cohort of participants with T1D at University Hospital in Switzerland.
 
 ```{r}
+#| output: false
+
 # Read data
 cases <- read_csv("/Users/PrecisionLab/OneDrive - Universitaet Bern/Documents/RStudio_Project Course/T1DEXI Base de datos Carolina Feb 23 2024.csv")
 
@@ -36,19 +42,19 @@ cases <- read_csv("/Users/PrecisionLab/OneDrive - Universitaet Bern/Documents/RS
 a1c <- cases |> select (a1c) 
 ```
 
-@fig-cases shows the HbA1C data in a cohort of participants with T1D at University Hospital in Switzerland. 
-
+@fig-cases shows the HbA1C data in a cohort of participants with T1D at University Hospital in Switzerland.
 
 ```{r}
 #| label: fig-cases 
 #| fig-cap: "HbA1C data in a cohort of participants with T1D"
 #| fig-width: 8
 #| fig-height: 4
-#| 
+
 ggplot(cases, aes (x= id, y= a1c)) + 
   geom_bar (stat = "identity", fill = unibeSaphire ())+
   labs(x = "", y = "a1c") + theme_minimal() 
 ```
 
 # Conclusions
-Our Analysis showed that most of the participant with T1D do not meet the target in HbA1C (less than 6%) according to the guidelines. We need to move forward beyond insulin therapies. 
+
+Our Analysis showed that most of the participant with T1D do not meet the target in HbA1C (less than 6%) according to the guidelines. We need to move forward beyond insulin therapies.
